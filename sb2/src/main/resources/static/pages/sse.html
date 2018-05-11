@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sse</title>
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script>
+
+        if(!!window.EventSource){
+            var es = new EventSource('/sse/randomNumbers');
+            es.addEventListener('message',function(e){
+                $('div').html(e.data);
+            },false);
+
+            es.addEventListener('open',function(e){
+                console.log("连接打开.");
+            },false);
+
+            es.addEventListener('error',function(e){
+                if (e.readyState == EventSource.CLOSED) {
+                    console.log("连接关闭");
+                } else {
+                    console.log(e.readyState);
+                }
+            },false);
+
+        }
+    </script>
+</head>
+<body>
+hello
+<div></div>
+</body>
+</html>

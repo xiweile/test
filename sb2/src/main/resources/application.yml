@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo?useSSL=false
+    username: root
+    password: xiweile
+    driverClassName: com.mysql.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  thymeleaf:
+    enabled: true
+    encoding: utf-8
+    cache: false
+server:
+  port: 8081
+
+
+---
+spring:
+  profiles: test

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="cas-overlay (1):war exploded">
+    <output-path>E:/resource/cas/cas-overlay-template-master/target/cas</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cas-overlay (1)" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="E:/resource/cas/cas-overlay-template-master/target/cas/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="cas-overlay (1)/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cas_app1" />
+        <module name="cas_app2" />
+        <module name="sb2" />
+        <module name="sb2_demo2" />
+        <module name="sb2_demo2 (1)" />
+        <module name="sb2_demo3" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cas-app1" target="1.8" />
+      <module name="cas-app2" target="1.8" />
+      <module name="cas-overlay" target="1.8" />
+      <module name="cas-overlay (1)" target="1.8" />
+      <module name="cas_app1" target="1.8" />
+      <module name="cas_app2" target="1.8" />
+      <module name="sb2" target="1.8" />
+      <module name="sb2_demo2" target="1.8" />
+      <module name="sb2_demo2 (1)" target="1.8" />
+      <module name="sb2_demo3" target="1.8" />
+      <module name="spring-boot-02-config" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

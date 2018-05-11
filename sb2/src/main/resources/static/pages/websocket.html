@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket</title>
+    <script src="/js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script language="javascript" type="text/javascript">
+
+    var wsUri = "ws://localhost:8082/echo";
+    var output;
+
+    function init()
+    {
+        output = document.getElementById("output");
+        wsUri = $('#uri').val();
+        testWebSocket();
+    }
+
+    function testWebSocket()
+    {
+        websocket = new WebSocket(wsUri);
+        websocket.onopen = function(evt) { onOpen(evt) };
+        websocket.onclose = function(evt) { onClose(evt) };
+        websocket.onmessage = function(evt) { onMessage(evt) };
+        websocket.onerror = function(evt) { onError(evt) };
+    }
+
+    function onOpen(evt)
+    {
+        writeToScreen("CONNECTED");
+        _close = function(){
+            writeToScreen("CLOSEING...");
+            websocket.close();
+        }
+        doSend("WebSocket rocks");
+    }
+
+    function onClose(evt)
+    {
+        writeToScreen("DISCONNECTED");
+    }
+
+    function onMessage(evt)
+    {
+        writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data+'</span>');
+    }
+
+    function onError(evt)
+    {
+        writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
+    }
+
+    function doSend(message)
+    {
+        writeToScreen("SENT: " + message);
+        try {
+            websocket.send(message);
+        }catch (e){
+            writeToScreen("SENT ERROR" + e.toString());
+        }
+
+    }
+
+    function writeToScreen(message)
+    {
+        var pre = document.createElement("p");
+        pre.style.wordWrap = "break-word";
+        pre.innerHTML = message;
+        output.appendChild(pre);
+    }
+
+    window.addEventListener("load", init, false);
+
+    $(function(){
+        $('#send').click(function(){
+            doSend($('#input').val());
+        });
+    })
+
+</script>
+
+<h2>WebSocket Test</h2>
+<input id="uri" type="text" value="ws://localhost:8082/echo">
+<button onclick="init();">建立连接</button><button onclick="_close();">断开连接</button><br/>
+<input id="input" type="text"><button id="send">发送</button>
+<div id="output"></div>
+</body>
+</html>
