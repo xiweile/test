@@ -11,7 +11,7 @@ public class helloFilter implements Filter{
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-
+        // 测试filter执行顺序
         System.out.println("hello filter before");
         filterChain.doFilter(servletRequest,servletResponse);
         System.out.println("hello filter after");
